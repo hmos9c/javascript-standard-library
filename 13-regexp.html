@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RegExp</title>
+</head>
+
+<body>
+    <script>
+
+        {
+            //create regex
+
+            const regex1 = /sanas/;
+            const regex2 = new RegExp("sanas");
+            const regex3 = new RegExp(/sanas/);
+        }
+
+        {
+
+            // test regex
+
+            const name = "sanas febriyan sanas hmos9c";
+            const regex = /sanas/;
+
+            const result = regex.exec(name);
+            console.info(result);
+            console.info(regex.exec("tidak ada"));
+
+            const test = regex.test(name);
+            console.info(test);
+            console.info(regex.test("tidak ada"));
+
+        }
+
+        {
+
+            //regex modifier
+
+            const name = "sanas febriyan\nSanas hmos9c\nSenes Febriyan";
+            const regex1 = /^e.a/igm
+            const regex2 = /Febriyan/ig
+
+            let result;
+            while ((result = regex1.exec(name)) !== null) {
+                console.info(result);
+            }
+
+            while ((result = regex2.exec(name)) !== null) {
+                console.info(result);
+            }
+
+        }
+
+        {
+
+            // advanced regex
+
+            const regex = /san[ioaeu]/ig
+
+            const name = "sanas senis sanus sunus senes senos sanas sinis";
+            let result;
+            while ((result = regex.exec(name)) !== null) {
+                console.info(result);
+            }
+
+        }
+
+        {
+
+            const name = "sanas senis sanus sunus senes senos sanas sinis";
+
+            console.info(name.match(/sa[aiueo]/ig));
+            console.info(name.search(/sa[aiueo]/ig));
+            console.info(name.replace(/sa[aiueo]/i, "kamu"));
+            console.info(name.replaceAll(/sa[aiueo]/ig, "kamu"));
+            console.info(name.split(/a/ig));
+
+        }
+
+    </script>
+</body>
+
+</html>
